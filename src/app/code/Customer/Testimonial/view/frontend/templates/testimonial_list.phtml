@@ -1,0 +1,25 @@
+<?php
+$baseUrl = $this->getBaseUrl(); ?>
+<a href="<?php
+echo $baseUrl; ?>testimonials">Add Testimonial</a>
+<?php
+$mediaUrl = $this->getMediaUrl();
+$testimonialrecords = $this->sidebarCollection();
+if ($testimonialrecords && count($testimonialrecords)) {
+?>
+<div class="testimonial-item-dv">
+    <?php
+    foreach ($testimonialrecords as $tetimonial) {
+        ?>
+        <div class="container">
+            <img src="<?php
+            echo $this->getViewFileUrl('Customer_Testimonial::images/default.jpg'); ?>" style="width:90px"/>
+            <p><span><?= $tetimonial->getData('name'); ?></span> <?php
+                echo $tetimonial->getData('email'); ?></p>
+            <p><?= $tetimonial->getData('testimonial_description'); ?></p>
+        </div>
+        <?php
+    } ?>
+    <?php
+    } ?>
+</div>
